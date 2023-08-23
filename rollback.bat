@@ -16,7 +16,7 @@ GOTO start
 EXIT
 
 :yes
-git reset HEAD~
+git reset --hard HEAD~
 echo Rollback done.
 PAUSE
 EXIT
