@@ -1,7 +1,4 @@
 @echo off
-git log
-
-@ECHO OFF
 :start
 SET choice=
 SET /p choice=Are you sure to rollback your changes (up to the last change made)? (Y/[N]): 
@@ -19,7 +16,7 @@ GOTO start
 EXIT
 
 :yes
-git reset --soft HEAD~
+git reset HEAD~
 echo Rollback done.
 PAUSE
 EXIT
