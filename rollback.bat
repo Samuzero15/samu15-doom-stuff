@@ -1,11 +1,10 @@
 @echo off
-git status
-set /p MESSAGE="Commit message: "
+git log
 
 @ECHO OFF
 :start
 SET choice=
-SET /p choice=Are you sure you want save your progress? (Y/[N]): 
+SET /p choice=Are you sure to rollback your changes (up to the last change made)? (Y/[N]): 
 IF NOT '%choice%'=='' SET choice=%choice:~0,1%
 IF '%choice%'=='Y' GOTO yes
 IF '%choice%'=='y' GOTO yes
@@ -20,8 +19,7 @@ GOTO start
 EXIT
 
 :yes
-git add .
-git commit -m "%MESSAGE%"
-echo Changes commited under the mesage: "%MESSAGE%"
+git reset --soft HEAD~
+echo Rollback done.
 PAUSE
 EXIT
